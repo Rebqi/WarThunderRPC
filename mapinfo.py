@@ -13,7 +13,6 @@ from json.decoder import JSONDecodeError
 from simplejson.errors import JSONDecodeError as simpleJSONDecodeError
 from urllib.error import URLError
 from urllib.request import urlretrieve
-from requests.exceptions import ReadTimeout, ConnectTimeout
 from math import radians, degrees, sqrt, sin, asin, cos, atan2
 from maps import maps
 
@@ -131,7 +130,7 @@ def coord_coord(lat: float, lon: float, dist: float, bearing: float) -> list:
     
     return [degrees(lat_2), degrees(lon_2)]
 
-def get_grid_info(map_img: Image) -> dict:
+def get_grid_info(map_img: Image.Image) -> dict:
     '''
     Compare map from browser interface to pre-calculated map hash to provide
     location info.
@@ -428,11 +427,13 @@ class map_obj(object):
             self.south_end = [map_obj_entry['sx'], map_obj_entry['sy']]
             self.east_end  = [map_obj_entry['ex'], map_obj_entry['ey']]
             
-            self.south_end_ll = find_obj_coords(*self.south_end,
+            self.south_end_ll = find_obj_coords(self.south_end[0],
+                                                self.south_end[1],
                                                 map_size,
                                                 ULHC_lat,
                                                 ULHC_lon)
-            self.east_end_ll = find_obj_coords(*self.east_end,
+            self.east_end_ll = find_obj_coords(self.east_end[0],
+                                               self.east_end[1],
                                                map_size,
                                                ULHC_lat,
                                                ULHC_lon)
@@ -447,7 +448,8 @@ class map_obj(object):
             
             self.runway_dir = 0
         
-        self.position_ll = find_obj_coords(*self.position,
+        self.position_ll = find_obj_coords(self.position[0],
+                                           self.position[1],
                                            map_size,
                                            ULHC_lat,
                                            ULHC_lon)
@@ -518,12 +520,6 @@ class MapInfo(object):
         except (OSError, JSONDecodeError, simpleJSONDecodeError):
             print('Waiting to join a match')
             sleep(1)
-            
-        except ReadTimeout:
-            print('ERROR: ReadTimeout')
-            
-        except ConnectTimeout:
-            print('ERROR: ConnectTimeout')
             
         return self.map_valid
     
