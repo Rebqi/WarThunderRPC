@@ -2,8 +2,6 @@
 
 ## About
 
-This Project is Originally from ValerieOSD and has been Updated by me to work in the Newer Version since she has Discontinued it. I have the Permission from her and will try my Best to Keep it Updated
-
 ![image](https://github.com/ValerieOSD/WarThunderRPC/assets/144137904/2ff2533c-d962-42cf-a2f9-0d113e9029b5)
 
 ![image](https://github.com/ValerieOSD/WarThunderRPC/assets/144137904/26584cb8-37d0-4af3-b664-1c41f948fac1)
@@ -39,7 +37,7 @@ Naval vehicles show no data and will not work, it will show up as "Unknown vehic
 
 ## Development
 
-I'm working on this myself, as an amateur in Python, please feel free to contribute and reach out to me if you have any suggestions, feedback or ideas!
+This Project is Originally from ValerieOSD and has been Updated by me to work again since she has Discontinued it. I have the Permission from her and will try my Best to Keep it Updated!
 
 ## Issues
 
