@@ -30,9 +30,9 @@ Naval vehicles show no data and will not work, it will show up as "Unknown vehic
 
 ## How to Install
 
- 1. Click on "Code"
- 2. Download ZIP
- 3. Run the application which Python whilst War Thunder is open
+ 1. Click on "Releases"
+ 2. Download Source Code
+ 3. Run the WarThunderRPC.py whilst War Thunder is open
 
 
 ## Development
