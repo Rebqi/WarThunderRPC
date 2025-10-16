@@ -3,7 +3,7 @@ import urllib.request
 import json
 import time
 from PIL import Image, ImageDraw
-from pypresence import Presence
+from pypresence.presence import Presence
 import telemetry
 import mapinfo
 from pprint import pprint
@@ -73,7 +73,7 @@ while True:
     img = Image.open("map.jpg")
 
     def find_map_info():
-        return(telemetry.mapinfo.get_grid_info(map_img=img))
+        return telemetry.mapinfo.get_grid_info(map_img=img)
 
     x = find_map_info()
     currentMap = x['name'].replace('_', ' ')
@@ -93,44 +93,44 @@ while True:
     # --- AIR --- #
     elif isinVehicle is True and inMap is True and inMatch is True and vehicleType=="air":
         if mainObjective.startswith("Capture the enemy point"):
-            RPC.update(state="Piloting a "+truncatedVehicleName.upper(), details="Ground Battle Match", start=clockTimer, large_image="logo", large_text="War Thunder", small_image="https://encyclopedia.warthunder.com/i/images/"+strippedVehicleName+".png",small_text=truncatedVehicleName.upper())
+            RPC.update(state="Piloting a "+truncatedVehicleName.upper(), details="Ground Battle Match", start=clockTimer, large_image="logo", large_text="War Thunder", small_image="https://static.encyclopedia.warthunder.com/images/"+strippedVehicleName+".png",small_text=truncatedVehicleName.upper())
         elif mainObjective.startswith("Capture and maintain superiority over the points"):
-            RPC.update(state="Piloting a "+truncatedVehicleName.upper(), details="Ground Domination Match", start=clockTimer, large_image="logo", large_text="War Thunder", small_image="https://encyclopedia.warthunder.com/i/images/"+strippedVehicleName+".png",small_text=truncatedVehicleName.upper())
+            RPC.update(state="Piloting a "+truncatedVehicleName.upper(), details="Ground Domination Match", start=clockTimer, large_image="logo", large_text="War Thunder", small_image="https://static.encyclopedia.warthunder.com/images/"+strippedVehicleName+".png",small_text=truncatedVehicleName.upper())
         elif mainObjective.startswith("Capture and maintain superiority over the airfields"):
-            RPC.update(state="Piloting a "+truncatedVehicleName.upper(), details="Air Domination Match on "+currentMap, start=clockTimer, large_image="logo", large_text="War Thunder", small_image="https://encyclopedia.warthunder.com/i/images/"+strippedVehicleName+".png",small_text=truncatedVehicleName.upper())
+            RPC.update(state="Piloting a "+truncatedVehicleName.upper(), details="Air Domination Match on "+currentMap, start=clockTimer, large_image="logo", large_text="War Thunder", small_image="https://static.encyclopedia.warthunder.com/images/"+strippedVehicleName+".png",small_text=truncatedVehicleName.upper())
         elif mainObjective.startswith("Capture and hold airfields."):
-            RPC.update(state="Piloting a "+truncatedVehicleName.upper(), details="Air Domination Match on "+currentMap, start=clockTimer, large_image="logo", large_text="War Thunder", small_image="https://encyclopedia.warthunder.com/i/images/"+strippedVehicleName+".png",small_text=truncatedVehicleName.upper())   
+            RPC.update(state="Piloting a "+truncatedVehicleName.upper(), details="Air Domination Match on "+currentMap, start=clockTimer, large_image="logo", large_text="War Thunder", small_image="https://static.encyclopedia.warthunder.com/images/"+strippedVehicleName+".png",small_text=truncatedVehicleName.upper())   
         elif mainObjective.startswith("Prevent capture of allied point"):
-            RPC.update(state="Piloting a "+truncatedVehicleName.upper(), details="Ground Battle Match", start=clockTimer, large_image="logo", large_text="War Thunder", small_image="https://encyclopedia.warthunder.com/i/images/"+strippedVehicleName+".png",small_text=truncatedVehicleName.upper())
+            RPC.update(state="Piloting a "+truncatedVehicleName.upper(), details="Ground Battle Match", start=clockTimer, large_image="logo", large_text="War Thunder", small_image="https://static.encyclopedia.warthunder.com/images/"+strippedVehicleName+".png",small_text=truncatedVehicleName.upper())
         elif mainObjective.startswith("Capture and keep hold of the point"):    
-            RPC.update(state="Piloting a "+truncatedVehicleName.upper(), details="Ground Conquest Match", start=clockTimer, large_image="logo", large_text="War Thunder", small_image="https://encyclopedia.warthunder.com/i/images/"+strippedVehicleName+".png",small_text=truncatedVehicleName.upper())
+            RPC.update(state="Piloting a "+truncatedVehicleName.upper(), details="Ground Conquest Match", start=clockTimer, large_image="logo", large_text="War Thunder", small_image="https://static.encyclopedia.warthunder.com/images/"+strippedVehicleName+".png",small_text=truncatedVehicleName.upper())
         elif mainObjective.startswith("Capture and hold the airfield"):
-            RPC.update(state="Piloting a "+truncatedVehicleName.upper(), details="Air Domination Match on "+currentMap, start=clockTimer, large_image="logo", large_text="War Thunder", small_image="https://encyclopedia.warthunder.com/i/images/"+strippedVehicleName+".png",small_text=truncatedVehicleName.upper())
+            RPC.update(state="Piloting a "+truncatedVehicleName.upper(), details="Air Domination Match on "+currentMap, start=clockTimer, large_image="logo", large_text="War Thunder", small_image="https://static.encyclopedia.warthunder.com/images/"+strippedVehicleName+".png",small_text=truncatedVehicleName.upper())
         elif mainObjective.startswith("Capture and maintain superiority over the air zone"):
-            RPC.update(state="Piloting a "+truncatedVehicleName.upper(), details="Air Domination Match on "+currentMap, start=clockTimer, large_image="logo", large_text="War Thunder", small_image="https://encyclopedia.warthunder.com/i/images/"+strippedVehicleName+".png",small_text=truncatedVehicleName.upper())
+            RPC.update(state="Piloting a "+truncatedVehicleName.upper(), details="Air Domination Match on "+currentMap, start=clockTimer, large_image="logo", large_text="War Thunder", small_image="https://static.encyclopedia.warthunder.com/images/"+strippedVehicleName+".png",small_text=truncatedVehicleName.upper())
         elif mainObjective.startswith("Destroy the enemy ground vehicles"):
-            RPC.update(state="Piloting a "+truncatedVehicleName.upper(), details="Air Ground Strike Match on "+currentMap, start=clockTimer, large_image="logo", large_text="War Thunder", small_image="https://encyclopedia.warthunder.com/i/images/"+strippedVehicleName+".png",small_text=truncatedVehicleName.upper())
+            RPC.update(state="Piloting a "+truncatedVehicleName.upper(), details="Air Ground Strike Match on "+currentMap, start=clockTimer, large_image="logo", large_text="War Thunder", small_image="https://static.encyclopedia.warthunder.com/images/"+strippedVehicleName+".png",small_text=truncatedVehicleName.upper())
         elif mainObjective.startswith("Destroy the highlighted targets"):
-            RPC.update(state="Piloting a "+truncatedVehicleName.upper(), details="Air Frontline Match on "+currentMap, start=clockTimer, large_image="logo", large_text="War Thunder", small_image="https://encyclopedia.warthunder.com/i/images/"+strippedVehicleName+".png",small_text=truncatedVehicleName.upper())
+            RPC.update(state="Piloting a "+truncatedVehicleName.upper(), details="Air Frontline Match on "+currentMap, start=clockTimer, large_image="logo", large_text="War Thunder", small_image="https://static.encyclopedia.warthunder.com/images/"+strippedVehicleName+".png",small_text=truncatedVehicleName.upper())
         elif mainObjective:
-            RPC.update(state="Piloting a "+truncatedVehicleName.upper(), details="Air Operations Match on "+currentMap, start=clockTimer, large_image="logo", large_text="War Thunder", small_image="https://encyclopedia.warthunder.com/i/images/"+strippedVehicleName+".png",small_text=truncatedVehicleName.upper())
+            RPC.update(state="Piloting a "+truncatedVehicleName.upper(), details="Air Operations Match on "+currentMap, start=clockTimer, large_image="logo", large_text="War Thunder", small_image="https://static.encyclopedia.warthunder.com/images/"+strippedVehicleName+".png",small_text=truncatedVehicleName.upper())
         elif currentMap=="UNKNOWN":
-            RPC.update(state="Piloting a "+truncatedVehicleName.upper(), details="Air Match on "+currentMap, start=clockTimer, large_image="logo", large_text="War Thunder", small_image="https://encyclopedia.warthunder.com/i/images/"+strippedVehicleName+".png",small_text=truncatedVehicleName.upper())
+            RPC.update(state="Piloting a "+truncatedVehicleName.upper(), details="Air Match on "+currentMap, start=clockTimer, large_image="logo", large_text="War Thunder", small_image="https://static.encyclopedia.warthunder.com/images/"+strippedVehicleName+".png",small_text=truncatedVehicleName.upper())
         else:
-            RPC.update(state="Piloting a "+truncatedVehicleName.upper(), details="Air Match on "+currentMap, start=clockTimer, large_image="logo", large_text="War Thunder", small_image="https://encyclopedia.warthunder.com/i/images/"+strippedVehicleName+".png",small_text=truncatedVehicleName.upper())    
+            RPC.update(state="Piloting a "+truncatedVehicleName.upper(), details="Air Match on "+currentMap, start=clockTimer, large_image="logo", large_text="War Thunder", small_image="https://static.encyclopedia.warthunder.com/images/"+strippedVehicleName+".png",small_text=truncatedVehicleName.upper())    
 
     # --- TANKS --- #
     elif isinVehicle is True and vehicleType=="tank" and inMap is True and inMatch is True:
             if mainObjective.startswith("Capture and maintain superiority over the points"):
-                RPC.update(state="Driving a "+truncatedVehicleName.upper(), details="Ground Domination Match on "+currentMap, start=clockTimer, large_image="logo", large_text="War Thunder", small_image="https://encyclopedia.warthunder.com/i/images/"+strippedVehicleName+".png",small_text=truncatedVehicleName.upper())
+                RPC.update(state="Driving a "+truncatedVehicleName.upper(), details="Ground Domination Match on "+currentMap, start=clockTimer, large_image="logo", large_text="War Thunder", small_image="https://static.encyclopedia.warthunder.com/images/"+strippedVehicleName+".png",small_text=truncatedVehicleName.upper())
             elif mainObjective.startswith("Capture the enemy point"):
-                RPC.update(state="Driving a "+truncatedVehicleName.upper(), details="Ground Battle Match on "+currentMap, start=clockTimer, large_image="logo", large_text="War Thunder", small_image="https://encyclopedia.warthunder.com/i/images/"+strippedVehicleName+".png",small_text=truncatedVehicleName.upper())
+                RPC.update(state="Driving a "+truncatedVehicleName.upper(), details="Ground Battle Match on "+currentMap, start=clockTimer, large_image= "logo", large_text="War Thunder", small_image="https://static.encyclopedia.warthunder.com/images/"+strippedVehicleName+".png",small_text=truncatedVehicleName.upper())
             elif mainObjective.startswith("Prevent the capture of the allied point"):
-                RPC.update(state="Driving a "+truncatedVehicleName.upper(), details="Ground Battle Match on "+currentMap, start=clockTimer, large_image="logo", large_text="War Thunder", small_image="https://encyclopedia.warthunder.com/i/images/"+strippedVehicleName+".png",small_text=truncatedVehicleName.upper())    
+                RPC.update(state="Driving a "+truncatedVehicleName.upper(), details="Ground Battle Match on "+currentMap, start=clockTimer, large_image="logo", large_text="War Thunder", small_image="https://static.encyclopedia.warthunder.com/images/"+strippedVehicleName+".png",small_text=truncatedVehicleName.upper())    
             elif mainObjective.startswith("Capture and keep hold of the point"):
-                RPC.update(state="Driving a "+truncatedVehicleName.upper(), details="Ground Conquest Match on "+currentMap, start=clockTimer, large_image="logo", large_text="War Thunder", small_image="https://encyclopedia.warthunder.com/i/images/"+strippedVehicleName+".png",small_text=truncatedVehicleName.upper())
+                RPC.update(state="Driving a "+truncatedVehicleName.upper(), details="Ground Conquest Match on "+currentMap, start=clockTimer, large_image="logo", large_text="War Thunder", small_image="https://static.encyclopedia.warthunder.com/images/"+strippedVehicleName+".png",small_text=truncatedVehicleName.upper())
             else:
-                RPC.update(state="Driving a "+truncatedVehicleName.upper(), details="Ground Match on "+currentMap, start=clockTimer, large_image="logo", large_text="War Thunder", small_image="https://encyclopedia.warthunder.com/i/images/"+strippedVehicleName+".png",small_text=truncatedVehicleName.upper())
+                RPC.update(state="Driving a "+truncatedVehicleName.upper(), details="Ground Match on "+currentMap, start=clockTimer, large_image="logo", large_text="War Thunder", small_image="https://static.encyclopedia.warthunder.com/images/"+strippedVehicleName+".png",small_text=truncatedVehicleName.upper())
 
     # --- CATCH-ALL --- #
     elif isinVehicle is False and inMap is True:
@@ -139,8 +139,7 @@ while True:
 
     # --- TEST DRIVE --- #
     elif isinVehicle is True and inMap is True and inMatch is False and vehicleType=="tank" or inMatch is False:
-        RPC.update(state="Driving a "+truncatedVehicleName.upper(), details="In Test Drive", start=clockTimer, large_image="logo", large_text="War Thunder", small_image="https://encyclopedia.warthunder.com/i/images/"+strippedVehicleName+".png",small_text=truncatedVehicleName.upper())
+        RPC.update(state="Driving a "+truncatedVehicleName.upper(), details="In Test Drive", start=clockTimer, large_image="logo", large_text="War Thunder", small_image="https://static.encyclopedia.warthunder.com/images/"+strippedVehicleName+".png",small_text=truncatedVehicleName.upper())
     elif isinVehicle is True and inMap is True and inMatch is False and vehicleType=="air" or inMatch is False:
-        RPC.update(state="Piloting a "+truncatedVehicleName.upper(), details="In Test Drive", start=clockTimer, large_image="logo", large_text="War Thunder", small_image="https://encyclopedia.warthunder.com/i/images/"+strippedVehicleName+".png",small_text=truncatedVehicleName.upper())
-    print("Updated Presence")
+        RPC.update(state="Piloting a "+truncatedVehicleName.upper(), details="In Test Drive", start=clockTimer, large_image="logo", large_text="War Thunder", small_image="https://static.encyclopedia.warthunder.com/images/"+strippedVehicleName+".png",small_text=truncatedVehicleName.upper())
     time.sleep(3) # Update rich presence every 3 seconds
