@@ -417,4 +417,13 @@ maps = {'0707937f153ccc5d': {'name': 'Kursk',
                              'ULHC_lat': 0.0,
                              'ULHC_lon': 0.0,
                              'size_km' : 65},
+        '0787c7e3c3c0cbcf': {'name': 'Battle_for_the_Rhine',
+                             'ULHC_lat': 0.0,
+                             'ULHC_lon': 0.0,
+                             'size_km' : 65},
+        'f0f0e0e0e0f8f8fe': {'name': 'Zaandam_Nederlands',
+                             'ULHC_lat': 0.0,
+                             'ULHC_lon': 0.0,
+                             'size_km' : 65},
+                        
 }
