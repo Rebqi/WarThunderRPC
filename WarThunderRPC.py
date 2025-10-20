@@ -2,6 +2,7 @@ import requests
 import urllib.request
 import json
 import time
+import imagehash
 from PIL import Image, ImageDraw
 from pypresence.presence import Presence
 import telemetry
@@ -143,5 +144,4 @@ while True:
     elif isinVehicle is True and inMap is True and inMatch is False and vehicleType=="air" or inMatch is False:
         RPC.update(state="Piloting a "+truncatedVehicleName.upper(), details="In Test Drive", start=clockTimer, large_image="logo", large_text="War Thunder", small_image="https://static.encyclopedia.warthunder.com/images/"+strippedVehicleName+".png",small_text=truncatedVehicleName.upper())
     print("Updated Presence")
-    time.sleep(3) # Update rich presence every 3 seconds
-
+    time.sleep(5) # Update rich presence every 5 seconds
